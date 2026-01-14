@@ -6,5 +6,13 @@
     },
     "revision": "noprod1",
     "env": "noprod1"
-  }
+  },
+  {
+    "cluster": {
+      "name": "cluster1",
+      "domain": "qfxhd.gcp.redhatworkshops.io"
+    },
+    "revision": "noprod2",
+    "env": "noprod2"
+  },
 ]
