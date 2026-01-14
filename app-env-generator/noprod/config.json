@@ -1,0 +1,10 @@
+[
+  {
+    "cluster": {
+      "name": "cluster1",
+      "domain": "qfxhd.gcp.redhatworkshops.io"
+    },
+    "revision": "svil",
+    "env": "svil"
+  }
+]

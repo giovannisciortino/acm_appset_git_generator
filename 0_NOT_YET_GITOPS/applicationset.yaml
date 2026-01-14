@@ -1,0 +1,38 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: app1-noprod
+  namespace: openshift-gitops
+spec:
+  generators:
+  - git:
+      files:
+      - path: ./app-env-generator/noprod/config.json
+      repoURL: https://github.com/giovannisciortino/acm_appset_git_generator.git
+      requeueAfterSeconds: 1800
+      revision: main
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+  template:
+    metadata:
+      annotations:
+        apps.open-cluster-management.io/ocm-managed-cluster: '{{ cluster.name }}'
+        apps.open-cluster-management.io/ocm-managed-cluster-app-namespace: openshift-gitops
+        argocd.argoproj.io/skip-reconcile: "true"
+      labels:
+        apps.open-cluster-management.io/pull-to-ocm-managed-cluster: "true"
+      name: '{{cluster.name}}-app1-{{env}}'
+      namespace: openshift-gitops
+    spec:
+      destination:
+        namespace: openshift-gitops
+        server: 'https://kubernetes.default.svc'
+      project: default
+      source:
+        path: applications
+        repoURL: https://github.com/giovannisciortino/acm_appset_app1.git
+        targetRevision: '{{revision}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
