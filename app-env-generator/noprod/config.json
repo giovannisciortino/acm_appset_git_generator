@@ -15,4 +15,18 @@
     "revision": "noprod2",
     "env": "noprod2"
   },
+    "cluster": {
+      "name": "cluster1",
+      "domain": "qfxhd.gcp.redhatworkshops.io"
+    },
+    "revision": "noprod3",
+    "env": "noprod3"
+  },
+    "cluster": {
+      "name": "cluster1",
+      "domain": "qfxhd.gcp.redhatworkshops.io"
+    },
+    "revision": "noprod4",
+    "env": "noprod4"
+  },
 ]
