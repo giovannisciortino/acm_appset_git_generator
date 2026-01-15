@@ -1,7 +1,7 @@
 [
   {
     "cluster": {
-      "name": "cluster2",
+      "name": "cluster1",
       "domain": "qfxhd.gcp.redhatworkshops.io"
     },
     "revision": "noprod1",
